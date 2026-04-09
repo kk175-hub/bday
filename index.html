@@ -239,31 +239,33 @@
 	<script>
 		// ====== EDIT THESE ======
 		const FRIEND = "Vijaya";
-		// Put ONE photo of Vijaya here for the final popup wish (repo root PNG):
-		const FINAL_PHOTO = "1.png";
+		// Use raw.githubusercontent URLs for images in this repo so they load from GitHub Pages/raw.
+		const RAW_BASE = "https://raw.githubusercontent.com/kk175-hub/bday/main/";
+		// Put ONE photo of Vijaya here for the final popup wish (raw URL):
+		const FINAL_PHOTO = RAW_BASE + "1.png";
 
-		// Photos + lines that appear on each tap (use explicit .png paths from repo root):
+		// Photos + lines that appear on each tap (use raw URLs):
 		const REVEALS = [
-			{ img: "1.png", text: "Congrats on surviving another year of being this chaotic 😌" },
-			{ img: "2.png", text: "You’re aging… but unfortunately not maturing 😂" },
-			{ img: "3.png", text: "Another year, same level of stupidity—consistency matters 🤡" },
-			{ img: "4.png", text: "You’re proof that God has a great sense of humor 😭" },
-			{ img: "5.png", text: "Still don’t know how you made it this far, but I’m impressed" },
-			{ img: "6.png", text: "You make my life way better just by being in it 💛" },
-			{ img: "7.png", text: "I don’t say it often, but you actually mean a lot to me" },
-			{ img: "8.png", text: "You’re one of the few people I never get tired of" },
-			{ img: "9.png", text: "Life feels lighter with you around 🫶" },
-			{ img: "10.png", text: "You deserve all the good things coming your way (even if you don’t deserve me 😌)" },
-			{ img: "1.png", text: "We fight like enemies but stick like family 😤" },
-			{ img: "2.png", text: "You’re annoying, dramatic, and still somehow important to me 🙄" },
-			{ img: "3.png", text: "I could replace you… but honestly, I’m too used to you now 😂" },
-			{ img: "4.png", text: "You’re my favorite person to argue with 😒" },
-			{ img: "5.png", text: "I hate you sometimes… but never enough to leave 😌" },
-			{ img: "6.png", text: "No matter how much things change, you’re stuck with me 🤝" },
-			{ img: "7.png", text: "Thanks for always being there—even when I’m unbearable" },
-			{ img: "8.png", text: "You’re not just a friend, you’re part of my everyday life" },
-			{ img: "9.png", text: "I trust you with things I don’t even trust myself with" },
-			{ img: "10.png", text: "You’ll always be my favorite headache 💯" }
+			{ img: RAW_BASE + "1.png", text: "Congrats on surviving another year of being this chaotic 😌" },
+			{ img: RAW_BASE + "2.png", text: "You’re aging… but unfortunately not maturing 😂" },
+			{ img: RAW_BASE + "3.png", text: "Another year, same level of stupidity—consistency matters 🤡" },
+			{ img: RAW_BASE + "4.png", text: "You’re proof that God has a great sense of humor 😭" },
+			{ img: RAW_BASE + "5.png", text: "Still don’t know how you made it this far, but I’m impressed" },
+			{ img: RAW_BASE + "6.png", text: "You make my life way better just by being in it 💛" },
+			{ img: RAW_BASE + "7.png", text: "I don’t say it often, but you actually mean a lot to me" },
+			{ img: RAW_BASE + "8.png", text: "You’re one of the few people I never get tired of" },
+			{ img: RAW_BASE + "9.png", text: "Life feels lighter with you around 🫶" },
+			{ img: RAW_BASE + "10.png", text: "You deserve all the good things coming your way (even if you don’t deserve me 😌)" },
+			{ img: RAW_BASE + "1.png", text: "We fight like enemies but stick like family 😤" },
+			{ img: RAW_BASE + "2.png", text: "You’re annoying, dramatic, and still somehow important to me 🙄" },
+			{ img: RAW_BASE + "3.png", text: "I could replace you… but honestly, I’m too used to you now 😂" },
+			{ img: RAW_BASE + "4.png", text: "You’re my favorite person to argue with 😒" },
+			{ img: RAW_BASE + "5.png", text: "I hate you sometimes… but never enough to leave 😌" },
+			{ img: RAW_BASE + "6.png", text: "No matter how much things change, you’re stuck with me 🤝" },
+			{ img: RAW_BASE + "7.png", text: "Thanks for always being there—even when I’m unbearable" },
+			{ img: RAW_BASE + "8.png", text: "You’re not just a friend, you’re part of my everyday life" },
+			{ img: RAW_BASE + "9.png", text: "I trust you with things I don’t even trust myself with" },
+			{ img: RAW_BASE + "10.png", text: "You’ll always be my favorite headache 💯" }
 		];
 		// =======================
 
