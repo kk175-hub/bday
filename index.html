@@ -239,54 +239,33 @@
 	<script>
 		// ====== EDIT THESE ======
 		const FRIEND = "Vijaya";
-		// Put ONE photo of Vijaya here for the final popup wish (no extension; loader will try jpg/png):
-		const FINAL_PHOTO = "./1.png";
+		// Put ONE photo of Vijaya here for the final popup wish (explicit relative path):
+		const FINAL_PHOTO = "v/1.jpg";
 
-const REVEALS = [
-  { img: "./1.png", text: "Congrats on surviving another year of being this chaotic 😌" },
-  { img: "./2.png", text: "You’re aging… but unfortunately not maturing 😂" },
-  { img: "./3.png", text: "Another year, same level of stupidity—consistency matters 🤡" },
-  { img: "./4.png", text: "You’re proof that God has a great sense of humor 😭" },
-  { img: "./5.png", text: "Still don’t know how you made it this far, but I’m impressed" },
-  { img: "./6.png", text: "You make my life way better just by being in it 💛" },
-  { img: "./7.png", text: "I don’t say it often, but you actually mean a lot to me" },
-  { img: "./8.png", text: "You’re one of the few people I never get tired of" },
-  { img: "./9.png", text: "Life feels lighter with you around 🫶" },
-  { img: "./10.png", text: "You deserve all the good things coming your way (even if you don’t deserve me 😌)" },
-  { img: "./1.png", text: "We fight like enemies but stick like family 😤" },
-  { img: "./2.png", text: "You’re annoying, dramatic, and still somehow important to me 🙄" },
-  { img: "./3.png", text: "I could replace you… but honestly, I’m too used to you now 😂" },
-  { img: "./4.png", text: "You’re my favorite person to argue with 😒" },
-  { img: "./5.png", text: "I hate you sometimes… but never enough to leave 😌" },
-  { img: "./6.png", text: "No matter how much things change, you’re stuck with me 🤝" },
-  { img: "./7.png", text: "Thanks for always being there—even when I’m unbearable" },
-  { img: "./8.png", text: "You’re not just a friend, you’re part of my everyday life" },
-  { img: "./9.png", text: "I trust you with things I don’t even trust myself with" },
-  { img: "./10.png", text: "You’ll always be my favorite headache 💯" }
-];
-
-
-		
+		// Photos + lines that appear on each tap (use explicit .jpg paths):
+		const REVEALS = [
+			{ img: "v/1.jpg", text: "Congrats on surviving another year of being this chaotic 😌" },
+			{ img: "v/2.jpg", text: "You’re aging… but unfortunately not maturing 😂" },
+			{ img: "v/3.jpg", text: "Another year, same level of stupidity—consistency matters 🤡" },
+			{ img: "v/4.jpg", text: "You’re proof that God has a great sense of humor 😭" },
+			{ img: "v/5.jpg", text: "Still don’t know how you made it this far, but I’m impressed" },
+			{ img: "v/6.jpg", text: "You make my life way better just by being in it 💛" },
+			{ img: "v/7.jpg", text: "I don’t say it often, but you actually mean a lot to me" },
+			{ img: "v/8.jpg", text: "You’re one of the few people I never get tired of" },
+			{ img: "v/9.jpg", text: "Life feels lighter with you around 🫶" },
+			{ img: "v/10.jpg", text: "You deserve all the good things coming your way (even if you don’t deserve me 😌)" },
+			{ img: "v/1.jpg", text: "We fight like enemies but stick like family 😤" },
+			{ img: "v/2.jpg", text: "You’re annoying, dramatic, and still somehow important to me 🙄" },
+			{ img: "v/3.jpg", text: "I could replace you… but honestly, I’m too used to you now 😂" },
+			{ img: "v/4.jpg", text: "You’re my favorite person to argue with 😒" },
+			{ img: "v/5.jpg", text: "I hate you sometimes… but never enough to leave 😌" },
+			{ img: "v/6.jpg", text: "No matter how much things change, you’re stuck with me 🤝" },
+			{ img: "v/7.jpg", text: "Thanks for always being there—even when I’m unbearable" },
+			{ img: "v/8.jpg", text: "You’re not just a friend, you’re part of my everyday life" },
+			{ img: "v/9.jpg", text: "I trust you with things I don’t even trust myself with" },
+			{ img: "v/10.jpg", text: "You’ll always be my favorite headache 💯" }
+		];
 		// =======================
-
-		// helper: try common extensions and set the img element when one loads
-		function setImgWithFallback(el, basePath){
-			const exts = ['.jpg', '.jpeg', '.png'];
-			let i = 0;
-			function tryNext(){
-				if (i >= exts.length){
-					// final fallback - set the first attempt (browser will show broken image icon if missing)
-					el.src = basePath + exts[0];
-					return;
-				}
-				const attempt = basePath + exts[i];
-				const probe = new Image();
-				probe.onload = () => { el.src = attempt; };
-				probe.onerror = () => { i++; tryNext(); };
-				probe.src = attempt;
-			}
-			tryNext();
-		}
 
 		const friendNameEl = document.getElementById("friendName");
 		const finalNameEl = document.getElementById("finalName");
@@ -339,10 +318,9 @@ const REVEALS = [
 			counterLabel.textContent = `${clicks} / ${targetClicks ?? "?"}`;
 		}
 
-		// override openWish to use the loader and append the extra wish sentence
+		// override openWish to set the final photo directly and append extra wish sentence
 		function openWish(){
-			setImgWithFallback(wishPhoto, FINAL_PHOTO);
-			// set combined wish message
+			wishPhoto.src = FINAL_PHOTO;
 			wishText.textContent = "May your year be full of laughter, good people, and zero “so when are you getting serious?” questions. Wishing you all the happiness, success, and peace in the world. And yeah… don’t change, you’re perfect the way you are 😌";
 			wishOverlay.style.display = "flex";
 			confettiBurst(220);
@@ -396,19 +374,19 @@ const REVEALS = [
 			setCounter();
 		});
 
-		// override revealOne to use loader for main and thumb images
+		// override revealOne to set images directly (straightforward relative paths)
 		function revealOne(){
 			const item = REVEALS[revealIndex % REVEALS.length];
 			revealIndex++;
 
-			setImgWithFallback(mainPhoto, item.img);
+			mainPhoto.src = item.img;
 			mainPhoto.style.display = "block";
 			caption.textContent = item.text;
 
 			const t = document.createElement("img");
 			t.className = "thumb";
+			t.src = item.img;
 			t.alt = "";
-			setImgWithFallback(t, item.img);
 			thumbGrid.appendChild(t);
 		}
 
